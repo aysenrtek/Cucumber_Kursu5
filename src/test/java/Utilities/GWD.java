@@ -52,10 +52,11 @@ public class GWD {
 
                 default:
                     //chrome
-                    //ChromeOptions options = new ChromeOptions();
-                    //options.addArguments("--remote-allow-origins=*");
-                    //threadDriver.set(new ChromeDriver(options));   // yoksa buraya bir tane set et
-                    threadDriver.set(new ChromeDriver());
+
+                    //Jenkins için Chrome memory maximize
+                    ChromeOptions options = new ChromeOptions();
+                    options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
+                    threadDriver.set(new ChromeDriver(options));   // yoksa buraya bir tane set et
                     break;
             }
         }
